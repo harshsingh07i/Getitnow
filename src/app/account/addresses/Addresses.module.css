@@ -1,0 +1,84 @@
+.header {
+  margin-bottom: 1.5rem;
+}
+
+.pageTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.addBtn {
+  color: var(--secondary);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  padding: 0;
+}
+
+.addBtn:hover {
+  opacity: 0.8;
+}
+
+.addressList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.addressCard {
+  background: white;
+  border-radius: var(--border-radius-md);
+  padding: 1.25rem;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.iconBox {
+  background-color: var(--bg-gray);
+  border-radius: 8px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.iconYellow {
+  color: #D97706;
+}
+
+.addressInfo {
+  flex: 1;
+}
+
+.addressType {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.addressDetails {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.menuBtn {
+  color: var(--text-secondary);
+  padding: 0.25rem;
+}
+
+.menuBtn:hover {
+  color: var(--text-primary);
+}
+
+.emptyState {
+  padding: 2rem;
+  background: white;
+  border-radius: var(--border-radius-md);
+  color: var(--text-secondary);
+}
