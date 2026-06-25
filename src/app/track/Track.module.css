@@ -1,0 +1,176 @@
+.trackingContainer {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  height: calc(100vh - 12rem);
+  min-height: 500px;
+}
+
+@media (max-width: 900px) {
+  .trackingContainer {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto;
+    height: auto;
+  }
+}
+
+.mapView {
+  border-radius: var(--border-radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  position: relative;
+  background: #e2e8f0;
+}
+
+.mapPlaceholder {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.radar {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1px solid rgba(79, 70, 229, 0.3);
+  animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes ping {
+  75%, 100% {
+    transform: translate(-50%, -50%) scale(2);
+    opacity: 0;
+  }
+}
+
+.markerStore {
+  position: absolute;
+  color: var(--secondary);
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+.markerRider {
+  position: absolute;
+  color: var(--primary);
+  transition: all 1s linear;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+}
+
+.markerHome {
+  position: absolute;
+  background: var(--text-primary);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-weight: 600;
+  box-shadow: var(--shadow-md);
+}
+
+.statusPanel {
+  display: flex;
+  flex-direction: column;
+}
+
+.etaHeader {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.etaHeader h2 {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin: 0;
+}
+
+.etaTime {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.progressBar {
+  height: 8px;
+  background: var(--border-light);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.progressFill {
+  height: 100%;
+  background: var(--primary);
+  transition: width 1s linear;
+}
+
+.statusSteps {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--text-tertiary);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.stepActive {
+  color: var(--text-primary);
+}
+
+.stepActive svg {
+  color: var(--secondary);
+}
+
+.riderInfo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-light);
+}
+
+.riderAvatar {
+  width: 48px;
+  height: 48px;
+  background: var(--primary-light);
+  color: var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.callBtn {
+  margin-left: auto;
+  width: 40px;
+  height: 40px;
+  background: var(--secondary);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+}
+
+.callBtn:hover {
+  transform: scale(1.05);
+}
