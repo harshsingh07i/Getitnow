@@ -1,0 +1,167 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  z-index: 100;
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+.panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 400px;
+  background: var(--bg-main);
+  box-shadow: -4px 0 24px rgba(0, 0, 0, 0.1);
+  z-index: 101;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  animation: slideInRight 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideInRight {
+  to { transform: translateX(0); }
+}
+
+.header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border-light);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--bg-surface);
+}
+
+.closeBtn {
+  color: var(--text-secondary);
+  transition: color 0.2s;
+}
+
+.closeBtn:hover {
+  color: var(--text-primary);
+}
+
+.content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.splitNotice {
+  display: flex;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: var(--primary-light);
+  border-radius: var(--border-radius-md);
+  color: var(--primary);
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.splitIcon {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.storeSection {
+  background: var(--bg-surface);
+  border-radius: var(--border-radius-md);
+  padding: 1.25rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.storeName {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px dashed var(--border-light);
+}
+
+.cartItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.cartItem:last-child {
+  margin-bottom: 0;
+}
+
+.itemInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.itemName {
+  font-weight: 500;
+  font-size: 0.9375rem;
+}
+
+.itemPrice {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.itemTotal {
+  font-weight: 600;
+}
+
+.logistics {
+  background: var(--bg-surface);
+  border-radius: var(--border-radius-md);
+  padding: 1.25rem;
+  box-shadow: var(--shadow-sm);
+  border-left: 3px solid var(--secondary);
+}
+
+.logistics h3 {
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.quoteRow {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+}
+
+.quoteHint {
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  margin-top: 0.5rem;
+}
+
+.footer {
+  padding: 1.5rem;
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border-light);
+  box-shadow: 0 -4px 12px rgba(0,0,0,0.05);
+}
+
+.totals {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+.totalPrice {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+/* Utility to add a generic full width to buttons */
+.w-full {
+  width: 100%;
+}
