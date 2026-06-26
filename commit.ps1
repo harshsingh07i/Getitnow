@@ -1,11 +1,15 @@
-git init
 git config user.name "theshantanujoshi"
 git config user.email "theshantanujoshi@users.noreply.github.com"
-git add .gitignore
-git commit -m "Initial commit: Add gitignore"
 
-$files = git ls-files -o --exclude-standard
-foreach ($file in $files) {
+# Get both modified and untracked files
+$files = git ls-files -m
+$untracked = git ls-files -o --exclude-standard
+$allFiles = $files + $untracked | Select-Object -Unique
+
+foreach ($file in $allFiles) {
+    if ([string]::IsNullOrWhiteSpace($file)) { continue }
     git add $file
-    git commit -m "Add $file"
+    git commit -m "Update $file"
 }
+
+git push origin main
