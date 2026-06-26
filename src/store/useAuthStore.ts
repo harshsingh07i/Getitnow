@@ -5,15 +5,19 @@ export type UserRole = 'admin' | 'vendor' | 'customer' | null;
 interface AuthStore {
   phone: string;
   isLoggedIn: boolean;
+  isVerified: boolean;
   role: UserRole;
-  login: (phone: string, role: UserRole) => void;
+  login: (phone: string, role: UserRole, isVerified?: boolean) => void;
   logout: () => void;
+  verifyPhone: () => void;
 }
 
 export const useAuthStore = create<AuthStore>((set) => ({
   phone: '', 
   isLoggedIn: false,
+  isVerified: false,
   role: null,
-  login: (phone, role) => set({ phone, isLoggedIn: true, role }),
-  logout: () => set({ phone: '', isLoggedIn: false, role: null }),
+  login: (phone, role, isVerified = true) => set({ phone, isLoggedIn: true, role, isVerified }),
+  logout: () => set({ phone: '', isLoggedIn: false, role: null, isVerified: false }),
+  verifyPhone: () => set({ isVerified: true }),
 }));
