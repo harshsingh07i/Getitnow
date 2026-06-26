@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useEffect } from 'react';
-import { MapContainer, TileLayer, Circle, Marker, Popup, useMap } from 'react-leaflet';
+import React from 'react';
+import { MapContainer, TileLayer, Circle, Marker } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 
@@ -41,7 +41,7 @@ export default function MapComponent() {
       <MapContainer 
         center={centerPosition} 
         zoom={13} 
-        scrollWheelZoom={false}
+        scrollWheelZoom={true}
         zoomControl={false}
         className="w-full h-full absolute inset-0 bg-slate-50"
       >
@@ -51,7 +51,6 @@ export default function MapComponent() {
         />
 
         {/* --- LIQUIDITY RIPPLES --- */}
-        {/* Cluster 1: Sector 4 */}
         <Circle 
           center={[12.9150, 77.6300]} 
           pathOptions={{ fillColor: '#10b981', color: '#10b981', fillOpacity: 0.2, weight: 1 }} 
@@ -62,21 +61,13 @@ export default function MapComponent() {
           pathOptions={{ fillColor: '#10b981', color: '#10b981', fillOpacity: 0.15, weight: 1 }} 
           radius={1500} 
         />
-        
-        {/* Cluster 2: Koramangala Border */}
         <Circle 
           center={[12.9350, 77.6250]} 
           pathOptions={{ fillColor: '#10b981', color: '#10b981', fillOpacity: 0.2, weight: 1 }} 
           radius={1000} 
         />
-        <Circle 
-          center={[12.9380, 77.6200]} 
-          pathOptions={{ fillColor: '#10b981', color: '#10b981', fillOpacity: 0.15, weight: 1 }} 
-          radius={1800} 
-        />
 
         {/* --- ALGORITHMIC DEAD ZONES --- */}
-        {/* Dead Zone: Sector 42 Equivalent */}
         <Circle 
           center={[12.9180, 77.6550]} 
           pathOptions={{ fillColor: '#ef4444', color: 'transparent', fillOpacity: 0.2 }} 
@@ -92,10 +83,9 @@ export default function MapComponent() {
 
       </MapContainer>
 
-      {/* Embedded Styles for custom animations in Leaflet */}
       <style dangerouslySetInnerHTML={{__html: `
         .leaflet-container {
-          background-color: #f8fafc; /* Tailwind slate-50 */
+          background-color: #f8fafc;
           font-family: inherit;
         }
         .leaflet-control-attribution {
