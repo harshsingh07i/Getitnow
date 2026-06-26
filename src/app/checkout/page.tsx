@@ -6,6 +6,7 @@ import { useCartStore } from '@/store/useCartStore';
 import { useLocationStore } from '@/store/useLocationStore';
 import { useRouter } from 'next/navigation';
 import { MapPin, ShoppingBag, ArrowRight, ShieldCheck } from 'lucide-react';
+import { useAuthStore } from '@/store/useAuthStore';
 
 export default function CheckoutPage() {
   const { items, getTotalPrice, clearCart, removeItem, outOfRangeItemIds } = useCartStore();
@@ -13,6 +14,7 @@ export default function CheckoutPage() {
   const [isMounted, setIsMounted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const router = useRouter();
+  const { isVerified, verifyPhone } = useAuthStore();
 
   useEffect(() => {
     setIsMounted(true);
@@ -150,8 +152,25 @@ export default function CheckoutPage() {
               </div>
 
               <div className="mt-8">
+                {!isVerified ? (
+                  <div className="mb-4 bg-red-50 border border-red-200 rounded-xl p-4 flex flex-col items-center text-center gap-2">
+                    <ShieldCheck size={24} className="text-red-500" />
+                    <p className="text-sm font-bold text-red-700">Phone Verification Required</p>
+                    <p className="text-xs font-medium text-red-600">You must verify your phone number to place orders on this platform.</p>
+                    <button 
+                      onClick={() => {
+                        verifyPhone();
+                        alert("For demonstration purposes, your phone is now verified! You can place your order.");
+                      }}
+                      className="mt-2 bg-red-100 hover:bg-red-200 text-red-700 text-xs font-bold px-4 py-2 rounded-lg transition-colors"
+                    >
+                      Verify Now
+                    </button>
+                  </div>
+                ) : null}
+
                 <button 
-                  disabled={validItems.length === 0 || isSubmitting}
+                  disabled={validItems.length === 0 || isSubmitting || !isVerified}
                   onClick={handleCheckout}
                   className="w-full bg-primary hover:bg-[#E64A2E] text-white font-bold py-4 rounded-xl shadow-lg shadow-primary/30 flex items-center justify-center gap-2 transform transition-all hover:-translate-y-1 disabled:opacity-50 disabled:hover:translate-y-0 disabled:shadow-none"
                 >
