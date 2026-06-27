@@ -4,14 +4,19 @@ import HomeBanners from '@/components/HomeBanners';
 import CategoryGrid from '@/components/CategoryGrid';
 import RoleGuard from '@/components/RoleGuard';
 
+import Footer from '@/components/Footer';
+
 export default function CustomerDashboard() {
   return (
     <RoleGuard allowedRoles={['customer']}>
-      <Header />
-      <main className="container mx-auto">
-        <HomeBanners />
-        <CategoryGrid />
-      </main>
+      <div className="min-h-screen bg-slate-50 flex flex-col font-sans">
+        <Header />
+        <main className="container mx-auto flex-1">
+          <HomeBanners />
+          <CategoryGrid />
+        </main>
+        <Footer />
+      </div>
     </RoleGuard>
   );
 }

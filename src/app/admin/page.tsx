@@ -9,6 +9,7 @@ import {
   Server, Zap, Share2, Users, ArrowRight
 } from 'lucide-react';
 import dynamic from 'next/dynamic';
+import Footer from '@/components/Footer';
 
 const DynamicMap = dynamic(() => import('@/components/MapComponent'), { 
   ssr: false, 
@@ -597,6 +598,7 @@ export default function AdminDashboard() {
               </div>
             )}
 
+            <Footer />
           </div>
         </main>
       </div>

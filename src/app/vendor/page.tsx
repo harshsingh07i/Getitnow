@@ -5,6 +5,7 @@ import RoleGuard from '@/components/RoleGuard';
 import { useAuthStore } from '@/store/useAuthStore';
 import { Store, LogOut, Bell, Users, Zap, TrendingUp, Target, RefreshCw, Package, Wallet } from 'lucide-react';
 import ScannerModal from '@/components/ScannerModal';
+import Footer from '@/components/Footer';
 
 export default function VendorDashboard() {
   const { logout } = useAuthStore();
@@ -341,6 +342,7 @@ export default function VendorDashboard() {
           </div>
 
         </main>
+        <Footer />
       </div>
 
       <ScannerModal isOpen={isScannerOpen} onClose={() => setIsScannerOpen(false)} />
