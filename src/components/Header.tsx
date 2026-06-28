@@ -84,17 +84,19 @@ export default function Header() {
               </button>
               
               {isAccountOpen && (
-                <div className="absolute right-0 mt-2 w-64 bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden transform opacity-100 scale-100 transition-all origin-top-right">
-                  <div className="p-4 border-b border-slate-100 bg-slate-50/50">
-                    <div className="font-bold text-secondary">My Account</div>
-                    <div className="text-xs text-slate-500 mt-1">9628616168</div>
-                  </div>
-                  <div className="flex flex-col py-2">
-                    {['My Orders', 'Saved Addresses', 'My Prescriptions', "FAQ's", 'Log Out'].map((item, i) => (
-                      <Link key={i} href="#" className="px-5 py-2.5 text-sm font-medium text-slate-600 hover:text-primary hover:bg-orange-50 transition-colors">
-                        {item}
-                      </Link>
-                    ))}
+                <div className="absolute right-0 pt-2 w-64 z-50">
+                  <div className="bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden transform opacity-100 scale-100 transition-all origin-top-right">
+                    <div className="p-4 border-b border-slate-100 bg-slate-50/50">
+                      <div className="font-bold text-secondary">My Account</div>
+                      <div className="text-xs text-slate-500 mt-1">9628616168</div>
+                    </div>
+                    <div className="flex flex-col py-2">
+                      {['My Orders', 'Saved Addresses', 'My Prescriptions', "FAQ's", 'Log Out'].map((item, i) => (
+                        <Link key={i} href="#" className="px-5 py-2.5 text-sm font-medium text-slate-600 hover:text-primary hover:bg-orange-50 transition-colors">
+                          {item}
+                        </Link>
+                      ))}
+                    </div>
                   </div>
                 </div>
               )}
